@@ -42,7 +42,7 @@ def Q_matrix(E1,E2,nu12,nu21,G12,theta):
     Q = numpy.zeros((3,3))
     #theta = math.radians(theta)
     Q[0,0] = E1/(1-nu12*nu21)
-    Q[0,1] = E2*nu12/(1-nu12*nu21)
+    Q[0,1] = E2*nu21/(1-nu12*nu21)
     Q[0,2] = 0
     Q[1,0] = E2*nu21/(1-nu12*nu21)
     Q[1,1] = E2/(1-nu12*nu21)
@@ -181,13 +181,13 @@ if __name__ == '__main__':
         alpha = float(input())
         theta = [i+alpha for i in theta]
         A = A_matrix(E1,E2,nu12,nu21,G12,h,theta)
-        numpy.around(A,decimals=4,out=A)
+        numpy.around(A,decimals=10,out=A)
         print(A)
         B=B_matrix(E1,E2,nu12,nu21,G12,h,theta)
-        numpy.around(B,decimals=4,out=B)
+        numpy.around(B,decimals=10,out=B)
         print(B)
         D=D_matrix(E1,E2,nu12,nu21,G12,h,theta)
-        numpy.around(D,decimals=4,out=D)
+        numpy.around(D,decimals=10,out=D)
         print(D)
     else:
         Q=Q_matrix_1()
@@ -201,13 +201,13 @@ if __name__ == '__main__':
         alpha = float(input())
         theta = [i+alpha for i in theta]
         A = A_matrix(0,0,0,0,0,h,theta,Q)
-        numpy.around(A,decimals=4,out=A)
+        numpy.around(A,decimals=10,out=A)
         print(A)
         B=B_matrix(0,0,0,0,0,h,theta,Q)
-        numpy.around(B,decimals=4,out=B)
+        numpy.around(B,decimals=10,out=B)
         print(B)
         D=D_matrix(0,0,0,0,0,h,theta,Q)
-        numpy.around(D,decimals=4,out=D)
+        numpy.around(D,decimals=10,out=D)
         print(D)
 """[[ 5. -1.  0.]
  [-1.  5. -0.]
